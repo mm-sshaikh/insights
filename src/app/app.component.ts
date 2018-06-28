@@ -16,10 +16,7 @@ export class AppComponent {
     this.getHeroes();
   }
 
-  getHeroes(): void {
-    this.t1Service.getOrganizations()
-    .subscribe(data => {
-      console.log(data);
-    });
+  getHeroes() {
+    this.t1Service.getOrganizations();
   }
 }
