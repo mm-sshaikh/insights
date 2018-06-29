@@ -11,3 +11,23 @@ $yellow:  #ffc107;
 $green:   #28a745;
 $teal:    #20c997;
 $cyan:    #17a2b8;
+
+@font-face {
+  /* Arimo Regular */
+  font-family: AR;
+  src: url('../assets/fonts/arimo-regular.eot');
+  src: url('../assets/fonts/arimo-regular.eot?#iefix') format('embedded-opentype'),
+  url('../assets/fonts/arimo-regular.woff') format('woff'),
+  url('../assets/fonts/arimo-regular.ttf') format('truetype'),
+  url('../assets/fonts/arimo-regular.svg#arimoregular') format('svg');
+}
+
+@font-face {
+  /* Arimo Bold */
+  font-family: AB;
+  src: url('../assets/fonts/arimo-bold.eot');
+  src: url('../assets/fonts/arimo-bold.eot?#iefix') format('embedded-opentype'),
+  url('../assets/fonts/arimo-bold.woff') format('woff'),
+  url('../assets/fonts/arimo-bold.ttf') format('truetype'),
+  url('../assets/fonts/arimo-bold.svg#arimobold') format('svg');
+}
