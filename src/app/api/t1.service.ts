@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable, forkJoin } from 'rxjs';
+import { Observable, forkJoin, from } from 'rxjs';
+
+import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 
 import { ConfigService } from './config.service';
 
@@ -19,48 +21,24 @@ export class T1Service {
   }
 
   getOrganizations() {
-    const query = 'organizations';
+    const url = this.config.base + 'organizations';
+    return this._http.get(url);
+  }
+
+  getRest(count, query) {
     let self = this;
-
-    self.checkCount(query).then(function (count) {
-      if (count) {
-        let promises = self.buildPaginated(count, query);
-        forkJoin(promises).subscribe(res => {
-          let results = [];
-          res.forEach((item) => {
-            results = results.concat(item.entities.entity);
-          });
-        });
-      }
-    });
-
+    let api = self.config.base + query;
+    let promises = self.buildPaginated(count, api);
+    return forkJoin(promises);
   }
 
-  private checkCount (query) {
-    const url = this.config.base+query;
-    let count;
-    return this._http.get(url).toPromise().then(function(data) {
-      if (data['entities']) {
-        count = data['entities']['count'];
-      } else {
-        count = 1;
-      }
-      return count;
-    });
-  }
-
-  private buildPaginated (count, query) {
+  private buildPaginated (count, api) {
     let arr = [];
-    let base = this.config.base + query;
-    let seperator = query.indexOf('?') > 0 ? '&' : '?';
+    let seperator = api.indexOf('?') > 0 ? '&' : '?';
 
-    arr.push(this._http.get(base));
-
-    if (count > 100) {
-      for (let i=100; i < count; i += 100) {
-        let url = base + seperator + 'page_limit=' + 100 + '&page_offset=' + i;
-        arr.push(this._http.get(url));
-      }
+    for (let i=100; i < count; i += 100) {
+      let url = api + seperator + 'page_limit=' + 100 + '&page_offset=' + i;
+      arr.push(this._http.get(url));
     }
 
     return arr;
