@@ -1,0 +1,29 @@
+.breadcrumb-container {
+  .menu-toggle-container {
+    display: inline-block;
+    .menu-toggle {
+      color: #5D769C;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      &:hover {
+        text-decoration: underline;
+      }
+      span {
+        text-transform: uppercase;
+        font: 11px/21px AB;
+        margin-right: 3px;
+        &:nth-child(1), &:nth-child(2) {
+          &::after {
+            content: "\00a0\00BB";
+          }
+        }
+      }
+    }
+    i {
+      display: inline-block;
+      margin-left: 2px;
+      margin-bottom: 1px;
+    }
+  }
+}

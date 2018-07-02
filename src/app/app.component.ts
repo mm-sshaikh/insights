@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { T1Service } from './api/t1.service';
 
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
