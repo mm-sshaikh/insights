@@ -1,4 +1,5 @@
 .breadcrumb-container {
+
   .menu-container {
     .menu-toggle {
       color: #5D769C;
@@ -42,7 +43,6 @@
           border-color: rgba(117, 161, 200, 0);
           border-right-color: #75A1C8;
           border-width: 7px;
-          margin-top: 0px;
         }
       }
       .start-text {
@@ -51,6 +51,20 @@
         background: #75A1C8;
         font-weight: 600;
       }
+    }
+  }
+
+  .app-title {
+    .header-title {
+      font-family: AB;
+      max-width: 900px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-size: 18px;
+      font-weight: 700;
+      display: inline-block;
+      color: #333333;
     }
   }
 }
