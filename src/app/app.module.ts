@@ -6,11 +6,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { InterceptorService } from './api/interceptor.service';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { RibbonComponent } from './ribbon/ribbon.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    RibbonComponent
   ],
   imports: [
     BrowserModule,
