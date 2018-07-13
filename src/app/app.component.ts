@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { T1Service } from './api/t1.service';
 
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { RibbonComponent } from './ribbon/ribbon.component';
 
 @Component({
   selector: 'app-root',
