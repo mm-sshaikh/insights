@@ -36,7 +36,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run build!
-      - run: npm run build
+      - run: yarn ng -- build
       
       # Cache the dist folder for the deploy job
       - save_cache:
