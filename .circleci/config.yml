@@ -34,19 +34,14 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
-      # run tests!
-      # - run: yarn test
 
-      # run build
-        - run:
-          name: Build QA
-          command: npm run build
+      # run build!
+      - run: npm run build
       
       # Cache the dist folder for the deploy job
-            - save_cache:
-                key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
-                paths:
-                  - dist
+      - save_cache:
+          key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
+          paths:
+            - dist
 
 
