@@ -42,6 +42,7 @@ jobs:
       - store_artifacts:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
-            - dist
+            path: ~/repo/dist
+            destination: dist/
 
 
