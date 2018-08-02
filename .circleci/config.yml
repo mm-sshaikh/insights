@@ -39,7 +39,7 @@ jobs:
       - run: yarn ng -- build
       
       # Cache the dist folder for the deploy job
-      - save_cache:
+      - store_artifacts:
           key: v1-dist-{{ .Environment.CIRCLE_BRANCH }}-{{ .Environment.CIRCLE_SHA1 }}
           paths:
             - dist
